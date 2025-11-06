@@ -17,6 +17,7 @@ on:
 jobs:
   create_release:
     name: "Create New Release"
+    if: ${{ contains(fromJSON('["major", "minor", "patch"]'), inputs.release_type) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -55,7 +56,7 @@ jobs:
       - name: Create New Release
         id: create-release
         run: |
-          echo "Creating Release Number $RELEASE_NUMBER for "
+          echo "Creating Release Number $RELEASE_NUMBER for $REPOSITORY_NAME"
           gh release create $RELEASE_NUMBER -R ${{ env.repository_name }} --generate-notes --latest
           echo "Release $RELEASE_NUMBER" has been created
         env:
