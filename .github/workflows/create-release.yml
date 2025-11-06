@@ -17,7 +17,7 @@ on:
 jobs:
   create_release:
     name: "Create New Release"
-    if: ${{ contains('major,minor,patch'), inputs.release_type) }}
+    if: ${{ contains('major,minor,patch', inputs.release_type) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
