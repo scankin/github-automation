@@ -61,5 +61,5 @@ jobs:
           echo "Release $RELEASE_NUMBER" has been created
         env:
           RELEASE_NUMBER: ${{ steps.release-num-generator.outputs.RELEASE_NUMBER }}
-          REPOSITORY_NAME: ${{ env.repository_name }}
+          REPOSITORY_NAME: ${{ inputs.repository_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
