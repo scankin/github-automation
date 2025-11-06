@@ -5,6 +5,10 @@ on:
         description: "The Path of the Repository to create the new release i.e. <org-name>/<repository-name>"
         required: true
         type: string
+    outputs:
+      release_type:
+        description: 'The type of release, determined by the branch the branch name'
+        value:  ${{ jobs.generate_release_type.outputs.release_type }}
     secrets:
       GH_TOKEN:
         description: Your github token
